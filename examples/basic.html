@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-<!-- three.js library -->
-<script src='js/three.min.js'></script>
-<!-- ar.js -->
-<script src="../dist/ar.js"></script>
+<!-- import three.js and ar.mjs library as a module-->
+<script type="importmap">
+	{
+      "imports": {
+		"threex": "./../dist/ar.mjs",
+        "three": "./js/three.module.min.js"
+      }
+    }
+</script>
+
 <!--<script>THREEx.ArToolkitContext.baseURL = '../'</script>-->
 
 <body style='font-family: Monospace;'>
@@ -12,7 +18,9 @@
 		<br />
 		Contact me any time at <a href='https://twitter.com/nicolocarp' target='_blank'>@nicolocarp</a>
 	</div>
-	<script>
+	<script type="module">
+		import * as THREE from 'three';
+		import { THREEx, ARjs } from 'threex';
 		THREEx.ArToolkitContext.baseURL= "./";
 		// log in the console the two newly created namespaces
 		console.log(THREEx);

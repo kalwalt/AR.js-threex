@@ -41,11 +41,11 @@ module.exports = (env, argv) => {
                 globalObject: 'this'
             },
             resolve: {
-              alias: {
-                jsartoolkit: '@ar-js-org/artoolkit5-js',
-                //threexArmarkercontrols$: path.resolve(__dirname, 'three.js/src/threex/arjs-markercontrols.js')
-              },
-              extensions: [".tsx", ".ts", ".js"],
+                alias: {
+                    jsartoolkit: '@ar-js-org/artoolkit5-js',
+                    //threexArmarkercontrols$: path.resolve(__dirname, 'three.js/src/threex/arjs-markercontrols.js')
+                },
+                extensions: [".tsx", ".ts", ".js"],
             },
             module,
             externals: {
@@ -55,6 +55,34 @@ module.exports = (env, argv) => {
                     amd: 'three',
                     root: 'THREE' // indicates global variable
                 }
+            }
+        },
+        {
+            name: 'arjs.module',
+            devtool,
+            experiments: {
+                outputModule: true,
+            },
+            entry: './src/index.ts',
+            output: {
+                //library: 'THREEx',
+                library: {
+                    type: 'module',
+                },
+                path: path.resolve(__dirname, './dist'),
+                filename: 'ar.mjs',
+            },
+            resolve: {
+                alias: {
+                    jsartoolkit: '@ar-js-org/artoolkit5-js',
+                    //threexArmarkercontrols$: path.resolve(__dirname, 'three.js/src/threex/arjs-markercontrols.js')
+                },
+                extensions: [".tsx", ".ts", ".js"],
+            },
+            module,
+            externalsType: 'module',
+            externals: {
+                three: 'three',
             }
         },
     ];

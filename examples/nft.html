@@ -2,13 +2,17 @@
 <!--<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">-->
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=1">
 <link rel="stylesheet" href="css/nft-style.css">
-<!-- three.js library -->
-<script src='js/three.min.js'></script>
-
-<!-- ar.js -->
-<script src="../dist/ar.js"></script>
-
-<!--<script>THREEx.ArToolkitContext.baseURL = '../'</script>-->
+<!-- stats.min.js library -->
+<script src='js/stats.min.js'></script>
+<!-- import three.js and ar.mjs library as a module-->
+<script type="importmap">
+    {
+      "imports": {
+        "threex": "./../dist/ar.mjs",
+        "three": "./js/three.module.min.js"
+      }
+    }
+</script>
 
 <body style='position: absolute; top: 0; left: 0; width: 100%; height: 100%; margin : 0px; overflow: hidden;'>
     <style>
@@ -54,7 +58,10 @@
     <div class="arjs-loader">
         <div class="arjs-loader-spinner"></div>
     </div>
-    <script>
+    <script type="module">
+        import * as THREE from 'three';
+        import { THREEx, ARjs } from 'threex';
+        THREEx.ArToolkitContext.baseURL= "./";
         //////////////////////////////////////////////////////////////////////////////////
         //		Init
         //////////////////////////////////////////////////////////////////////////////////
@@ -153,7 +160,7 @@
         // create atToolkitContext
         var arToolkitContext = new THREEx.ArToolkitContext({
             detectionMode: 'mono',
-            cameraParametersUrl: THREEx.ArToolkitContext.baseURL + '../data/data/camera_para.dat',
+            cameraParametersUrl: THREEx.ArToolkitContext.baseURL + '../data/camera_para.dat',
             //canvasWidth: 480,
             canvasWidth: 640,
             //canvasHeight: 640,
@@ -178,7 +185,7 @@
         // init controls for camera
         var markerControls = new THREEx.ArMarkerControls(arToolkitContext, camera, {
             type : 'nft',
-            descriptorsUrl : '' + 'AR.js-threejs/examples/data/dataNFT/pinball',
+            descriptorsUrl : '' + './examples/data/dataNFT/pinball',
             changeMatrixMode: 'cameraTransformMatrix'
         })
 

@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <meta name='viewport' content='width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0'>
-<!-- three.js library -->
-<script src='js/three.min.js'></script>
+<!-- stats.min.js library -->
 <script src='js/stats.min.js'></script>
-<!-- ar.js -->
-<script src="../dist/ar.js"></script>
-<script>THREEx.ArToolkitContext.baseURL = '../'</script>
+<!-- import three.js and ar.mjs library as a module-->
+<script type="importmap">
+	{
+      "imports": {
+        "threex": "./../dist/ar.mjs",
+        "three": "./js/three.module.min.js"
+      }
+    }
+</script>
 
 <!-- Bind window error for error handling -->
 <script>
@@ -18,7 +23,10 @@
 	<a href='https://github.com/AR-js-org/AR.js-threejs/' target='_blank'>AR.js-threejs</a> - default setting - webcam + hiro + profile + lerp
 	<br/>
 	Contact me any time at <a href='https://twitter.com/nicolocarp' target='_blank'>@nicolocarp</a>
-</div><script>
+</div><script type="module">
+	import * as THREE from 'three';
+	import { THREEx, ARjs } from 'threex';
+	THREEx.ArToolkitContext.baseURL= "./";
 	//////////////////////////////////////////////////////////////////////////////////
 	//		Init
 	//////////////////////////////////////////////////////////////////////////////////

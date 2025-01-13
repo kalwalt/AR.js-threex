@@ -1,6 +1,6 @@
 {
   "name": "example-ts",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "simple ar.js-threejs typescript example",
   "main": "basic.ts",
   "scripts": {

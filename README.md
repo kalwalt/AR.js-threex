@@ -1,10 +1,10 @@
-# AR.js-threejs
+# AR.js-threejs 🚀
 
 Testing repository for the AR.js core module. I'm converting AR.js code to the Typescript language but providing the same classes and structures as much as possible.
 The module export two namespaces as in the old implementation: **THREEx** and **ARjs**.
 The project is under development, so things could not works as expected. If you find a bug file an issue at our [issues](https://github.com/AR-js-org/AR.js-threejs/issues)
 
-## List of classes in the namespaces
+## List of classes in the namespaces 📚
 ### THREEx:
 - [x] ArBaseControls
 - [x] ArClickability
@@ -30,11 +30,17 @@ The project is under development, so things could not works as expected. If you 
 - [x] Profile
 - [x] Utils
 
-## Examples
+## Examples 💡
 For now, you can find some vanilla JS examples in the **examples** folder and anothers in Typescript in the **example-ts** folder. More examples will be added in a near future.
 Update 20/10/2024: Now also NFT examples.
+Update 13/01/2025: Vite example, see example-vite folder.
 
-## Test it with Typescript
+## Three.js version 🛠️
+### Three.js version
+
+This project uses Three.js version 0.164.0. The examples and code are updated to use the new syntax with `importmap` for module imports. Previous versions of Three.js are not supported, but the old AR.js is still available.
+
+## Test it with Typescript 🧪
 
 First, you need to add the `ar.js-threejs` package to your project:
 
@@ -57,6 +63,6 @@ sourceType: 'webcam',
 
 After, you need a bundler (webpack, rollup..) to build the final app. look at _example-ts_ for this purpose.
 
-## Feature to add
+## Feature to add 📝
 
 - [ ] markers-area with multimarker support?

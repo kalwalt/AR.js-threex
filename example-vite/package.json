@@ -1,6 +1,6 @@
 {
   "name": "example-vite",
-  "version": "0.0.0",
+  "version": "0.3.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -12,6 +12,6 @@
   },
   "dependencies": {
     "@ar-js-org/ar.js-threejs": "../",
-    "three": "^0.172.0"
+    "three": "^0.164.0"
   }
 }

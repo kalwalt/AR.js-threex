@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <meta name='viewport' content='width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0'>
-<!-- three.js library -->
-<script src='js/three.min.js'></script>
-<!-- include ar.js -->
-<script src="../dist/ar.js"></script>
-
-
-<!--<script>ARjs.Context.baseURL = '../'</script>-->
+<!-- import three.js and ar.mjs library as a module-->
+<script type="importmap">
+    {
+      "imports": {
+        "threex": "./../dist/ar.mjs",
+        "three": "./js/three.module.min.js"
+      }
+    }
+</script>
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
     <div style='position: absolute; top: 10px; width:100%; text-align: center; z-index: 1;'>
@@ -23,7 +25,13 @@
         /
         <a href='?best'>best</a>
     </div>
-    <script>
+    <script type="module">
+        import * as THREE from 'three';
+        import { THREEx, ARjs } from 'threex';
+        THREEx.ArToolkitContext.baseURL= "./";
+        // log in the console the two newly created namespaces
+        console.log(THREEx);
+        console.log(ARjs)
             ; (function () {
                 // get tracking method from location.search
                 var trackingMethod = location.search.substring(1) ? location.search.substring(1) : 'best'

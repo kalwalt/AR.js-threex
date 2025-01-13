@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <meta name='viewport' content='width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0'>
-<!-- three.js and stats.js library -->
-<script src='js/three.min.js'></script>
+<!-- stats.min.js library -->
 <script src='js/stats.min.js'></script>
-<!-- include threex.artoolkit -->
-<script src="../dist/ar.js"></script>
-<!--<script>THREEx.ArToolkitContext.baseURL = '../'</script>-->
+<!-- import three.js and ar.mjs library as a module-->
+<script type="importmap">
+	{
+      "imports": {
+        "threex": "./../dist/ar.mjs",
+        "three": "./js/three.module.min.js"
+      }
+    }
+</script>
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
 	<div style='position: absolute; top: 10px; width:100%; text-align: center;z-index:1' ;>
@@ -13,7 +18,10 @@
 		<br />
 		Contact me any time at <a href='https://twitter.com/nicolocarp' target='_blank'>@nicolocarp</a>
 	</div>
-	<script>
+	<script type="module">
+		import * as THREE from 'three';
+		import { THREEx, ARjs } from 'threex';
+
 		//////////////////////////////////////////////////////////////////////////////////
 		//		Init
 		//////////////////////////////////////////////////////////////////////////////////

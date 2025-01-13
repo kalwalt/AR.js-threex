@@ -22,55 +22,47 @@ module.exports = (env, argv) => {
         {
             name: "example-basic",
             devtool,
+            experiments: {
+                outputModule: true,
+            },
             entry: './basic.ts',
             output: {
                 path: path.resolve(__dirname, './dist'),
-                filename: 'basic.js',
-                libraryTarget: 'umd',
-                globalObject: 'this'
+                filename: 'basic.mjs',
+                library: {
+                    type: 'module',
+                },
             },
             resolve: {
-                /*alias: {
-                    jsartoolkit: '@ar-js-org/artoolkit5-js',
-                    //threexArmarkercontrols$: path.resolve(__dirname, 'three.js/src/threex/arjs-markercontrols.js')
-                },*/
                 extensions: [".tsx", ".ts", ".js"],
             },
             module,
+            externalsType: 'module',
             externals: {
-                three: {
-                    commonjs: 'three',
-                    commonjs2: 'three',
-                    amd: 'three',
-                    root: 'THREE' // indicates global variable
-                }
+                three: 'three',
             }
         },
         {
             name: "example-nft",
             devtool,
+            experiments: {
+                outputModule: true,
+            },
             entry: './nft.ts',
             output: {
                 path: path.resolve(__dirname, './dist'),
-                filename: 'nft.js',
-                libraryTarget: 'umd',
-                globalObject: 'this'
+                filename: 'nft.mjs',
+                library: {
+                    type: 'module',
+                },
             },
             resolve: {
-                /*alias: {
-                    jsartoolkit: '@ar-js-org/artoolkit5-js',
-                    //threexArmarkercontrols$: path.resolve(__dirname, 'three.js/src/threex/arjs-markercontrols.js')
-                },*/
                 extensions: [".tsx", ".ts", ".js"],
             },
             module,
+            externalsType: 'module',
             externals: {
-                three: {
-                    commonjs: 'three',
-                    commonjs2: 'three',
-                    amd: 'three',
-                    root: 'THREE' // indicates global variable
-                }
+                three: 'three',
             }
         }
     ];

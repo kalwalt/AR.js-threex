@@ -5,9 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AR.js-threejs nft example with Typescript</title>
+    <script type="importmap">
+        {
+          "imports": {
+            "three": "./js/three.module.min.js",
+            "nft": "./dist/nft.mjs"
+          }
+        }
+    </script>
 </head>
 <body>
-    <script src="js/three.min.js"></script>
-    <script src="dist/nft.js"></script>
+<script type="module">
+    import * as THREE from 'three';
+    import 'nft';
+</script>
 </body>
 </html>
